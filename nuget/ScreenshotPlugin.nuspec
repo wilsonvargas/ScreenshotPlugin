@@ -47,16 +47,16 @@
    </metadata>
    <files>
      <!--Core-->
-     <file src="..src\ScreenShot\Plugin.ScreenShot\bin\Release\Plugin.ScreenShot.*" target="lib\portable-net45+wp80+win8+wpa81" />
+     <file src="..\src\ScreenShot\Plugin.ScreenShot\bin\Release\Plugin.ScreenShot.*" target="lib\portable-net45+wp80+win8+wpa81" />
 
      <!--Xamarin.Android-->
-     <file src="..src\ScreenShot\Plugin.ScreenShot.Android\bin\Release\Plugin.ScreenShot.*" target="lib\MonoAndroid10" />
+     <file src="..\src\ScreenShot\Plugin.ScreenShot.Android\bin\Release\Plugin.ScreenShot.*" target="lib\MonoAndroid10" />
 
      <!--Xamarin.iOS-->
-     <file src="..src\ScreenShot\Plugin.ScreenShot.iOS\bin\iPhone\Release\Plugin.ScreenShot.*" target="lib\Xamarin.iOS10" />
+     <file src="..\src\ScreenShot\Plugin.ScreenShot.iOS\bin\iPhone\Release\Plugin.ScreenShot.*" target="lib\Xamarin.iOS10" />
 
      <!--UWP-->
-     <file src="..src\ScreenShot\Plugin.ScreenShot.UWP\bin\Release\Plugin.ScreenShot.*" target="lib\UAP10" />
+     <file src="..\src\ScreenShot\Plugin.ScreenShot.UWP\bin\Release\Plugin.ScreenShot.*" target="lib\UAP10" />
 
 
    </files>

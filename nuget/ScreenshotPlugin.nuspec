@@ -8,7 +8,7 @@
        <owners>Wilson Vargas</owners>
      <licenseUrl>https://github.com/wilsonvargas/ScreenshotPlugin/blob/master/LICENSE</licenseUrl>
      <projectUrl>https://github.com/wilsonvargas/ScreenshotPlugin</projectUrl>
-     <iconUrl></iconUrl>
+     <iconUrl>https://raw.githubusercontent.com/wilsonvargas/ScreenshotPlugin/master/icon/icon.png</iconUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>
          Take screenshots from any platform with this plugin.

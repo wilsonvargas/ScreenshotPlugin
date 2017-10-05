@@ -9,5 +9,6 @@ namespace Plugin.Screenshot.Abstractions
   public interface IScreenshot
   {
         Task<byte[]> CaptureAsync();
+        Task CaptureAndSaveAsync();
     }
 }

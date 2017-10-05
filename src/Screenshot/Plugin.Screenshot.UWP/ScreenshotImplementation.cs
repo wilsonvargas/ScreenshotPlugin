@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Windows.Graphics.Display;
 using Windows.Graphics.Imaging;
 using Windows.Security.Cryptography;
+using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media.Imaging;
@@ -47,5 +48,20 @@ namespace Plugin.Screenshot
 
             return bytes;
         }
+
+        public async Task CaptureAndSaveAsync()
+        {
+            var bytes = await CaptureAsync();
+            StorageFolder picturesLibrary = KnownFolders.PicturesLibrary;
+            StorageFolder savedPicturesFolder = await picturesLibrary.CreateFolderAsync("Screenshots", CreationCollisionOption.OpenIfExists);
+            string date = DateTime.Now.ToString().Replace("/", "-").Replace(":", "-");
+            StorageFile imageFile = await savedPicturesFolder.CreateFileAsync("Screnshot-" + date + ".png", CreationCollisionOption.ReplaceExisting);
+            using (System.IO.Stream SourceStream = await imageFile.OpenStreamForWriteAsync())
+            {
+                SourceStream.Seek(0, System.IO.SeekOrigin.End);
+                await SourceStream.WriteAsync(bytes, 0, bytes.Length);
+            }
+        }
+
     }
 }

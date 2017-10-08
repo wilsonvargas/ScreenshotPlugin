@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleScreenShot"
+             x:Class="SampleScreenShot.MainPage">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Frame CornerRadius="50" BackgroundColor="Black">
+            <Image x:Name="IncidentImageData" Aspect="AspectFill" HeightRequest="250" WidthRequest="100" />
+        </Frame>
+        <Label x:Name="label"/>
+        <Button Text="Take Screenshot!" Clicked="Button_Clicked"/>
+        <Button Text="Takse and Save Screenshot!" Clicked="Button_Clicked_1"/>
+    </StackLayout>
+
+</ContentPage>

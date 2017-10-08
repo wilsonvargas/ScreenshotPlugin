@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NReco.PhantomJS</name>
+    </assembly>
+    <members>
+        <member name="T:NReco.PhantomJS.PhantomJS">
+            <summary>
+            PhantomJS Wrapper
+            </summary>
+        </member>
+        <member name="M:NReco.PhantomJS.PhantomJS.#ctor">
+            <summary>
+            Create new instance of HtmlToPdfConverter
+            </summary>
+        </member>
+        <member name="M:NReco.PhantomJS.PhantomJS.Run(System.String,System.String[])">
+            <summary>
+            Execute javascript code from specified file.
+            </summary>
+            <param name="jsFile">URL or local path to javascript file to execute</param>
+            <param name="jsArgs">arguments for javascript code (optional; can be null)</param>
+        </member>
+        <member name="M:NReco.PhantomJS.PhantomJS.Run(System.String,System.String[],System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Execute javascript code from specified file with input/output interaction
+            </summary>
+            <param name="jsFile">URL or local path to javascript file to execute</param>
+            <param name="jsArgs">arguments for javascript code (optional; can be null)</param>
+            <param name="inputStream">input stream for stdin data (can be null)</param>
+            <param name="outputStream">output stream for stdout data (can be null)</param>
+        </member>
+        <member name="M:NReco.PhantomJS.PhantomJS.RunScript(System.String,System.String[])">
+            <summary>
+            Execute javascript code block
+            </summary>
+            <param name="javascriptCode">javascript code</param>
+            <param name="jsArgs">arguments for javascript code (optional; can be null)</param>
+        </member>
+        <member name="M:NReco.PhantomJS.PhantomJS.RunScript(System.String,System.String[],System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Execute javascript code block
+            </summary>
+            <param name="javascriptCode">javascript code</param>
+            <param name="jsArgs">arguments for javascript code (optional; can be null)</param>
+            <param name="inputStream">input stream for stdin data (can be null)</param>
+            <param name="outputStream">output stream for stdout data (can be null)</param>
+        </member>
+        <member name="M:NReco.PhantomJS.PhantomJS.Abort">
+            <summary>
+            Abort PhantomJS process (if started)
+            </summary>
+            <remarks>This method IMMEDIATELY stops PhantomJS by killing the process.</remarks>
+        </member>
+        <member name="P:NReco.PhantomJS.PhantomJS.ToolPath">
+            <summary>
+            Get or set path where phantomjs.exe is located
+            </summary>
+            <remarks>
+            By default this property initialized with assembly location (app bin folder). 
+            This is exact place where phantomjs.exe is copied by PhantomJS nuget package.
+            </remarks>
+        </member>
+        <member name="P:NReco.PhantomJS.PhantomJS.PhantomJsExeName">
+            <summary>
+            Get or set PhantomJS tool executive file name ('phantomjs.exe' by default)
+            </summary>
+        </member>
+        <member name="P:NReco.PhantomJS.PhantomJS.CustomArgs">
+            <summary>
+            Get or set extra PhantomJS switches/options
+            </summary>
+        </member>
+        <member name="P:NReco.PhantomJS.PhantomJS.ProcessPriority">
+            <summary>
+            Get or set PhantomJS process priority (Normal by default)
+            </summary>
+        </member>
+        <member name="P:NReco.PhantomJS.PhantomJS.ExecutionTimeout">
+            <summary>
+            Get or set maximum execution time for running PhantomJS process (null is by default = no timeout)
+            </summary>
+        </member>
+        <member name="E:NReco.PhantomJS.PhantomJS.OutputReceived">
+            <summary>
+            Occurs when output data is received from PhantomJS process
+            </summary>
+        </member>
+        <member name="E:NReco.PhantomJS.PhantomJS.ErrorReceived">
+            <summary>
+            Occurs when error data is received from PhantomJS process
+            </summary>
+        </member>
+        <member name="T:NReco.PhantomJS.PhantomJSException">
+            <summary>
+            The exception that is thrown when PhantomJS process returns non-zero exit code
+            </summary>
+        </member>
+        <member name="P:NReco.PhantomJS.PhantomJSException.ErrorCode">
+            <summary>
+            Get WkHtmlToImage process error code
+            </summary>
+        </member>
+    </members>
+</doc>

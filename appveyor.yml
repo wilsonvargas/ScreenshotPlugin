@@ -9,7 +9,6 @@ build_script:
 - cmd: >-
     powershell .\install-android-sdk.ps1
 
-    powershell .\bootstrapper.ps1 -Target Default -Verbosity diagnostic
 artifacts:
 - path: ./Build/nuget/*.nupkg
   name: NuGet

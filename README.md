@@ -7,6 +7,10 @@ A simple Screenshot plugin for Xamarin and Windows to get and save screenshot in
 * NuGet: [Xam.Plugin.Screenshot](https://www.nuget.org/packages/Xam.Plugin.Screenshot) [![NuGet](https://img.shields.io/nuget/v/Xam.Plugin.Screenshot.svg?label=NuGet)](https://www.nuget.org/packages/Xam.Plugin.Screenshot/)
 
 
+## Build Status
+
+Build status: [![Build status](https://ci.appveyor.com/api/projects/status/1w46g7ebn59w6d0f?svg=true)](https://ci.appveyor.com/project/wilsonvargas/screenshotplugin)
+
 ## Platform Support
 
 |Platform|Version|

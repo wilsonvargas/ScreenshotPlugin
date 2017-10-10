@@ -12,7 +12,6 @@ A simple Screenshot plugin for Xamarin and Windows to get and save screenshot in
 |Platform|Version|
 | ------------------- | :------------------: |
 |Xamarin.iOS|iOS 8+|
-|tvOS - Apple TV|All|
 |Xamarin.Android|API 14+|
 |Windows 10 UWP|10+|
 

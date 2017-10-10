@@ -1,4 +1,4 @@
-## Screenshot Plugin for Xamarin and Windows
+# Screenshot Plugin for Xamarin and Windows
 
 A simple Screenshot plugin for Xamarin and Windows to get and save screenshot in yours apps.
 

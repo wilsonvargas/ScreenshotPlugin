@@ -17,7 +17,7 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
     <JavaMaximumHeapSize />
@@ -57,10 +57,10 @@
       <HintPath>..\..\packages\Plugin.CurrentActivity.1.0.1\lib\MonoAndroid10\Plugin.CurrentActivity.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.Screenshot, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.Screenshot.1.0.13\lib\MonoAndroid10\Plugin.Screenshot.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.Screenshot.1.0.11\lib\MonoAndroid10\Plugin.Screenshot.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.Screenshot.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.Screenshot.1.0.13\lib\MonoAndroid10\Plugin.Screenshot.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.Screenshot.1.0.11\lib\MonoAndroid10\Plugin.Screenshot.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

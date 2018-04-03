@@ -19,6 +19,7 @@ namespace Plugin.Screenshot
     {
         public async Task<byte[]> CaptureAsync()
         {
+            await Task.Delay(1000);
             var rtb = new RenderTargetBitmap();
             await rtb.RenderAsync(Window.Current.Content);
 

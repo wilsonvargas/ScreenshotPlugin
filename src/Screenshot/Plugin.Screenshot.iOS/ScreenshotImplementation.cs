@@ -14,8 +14,8 @@ namespace Plugin.Screenshot
     {   
         public async Task<byte[]> CaptureAsync()
         {
+            await Task.Delay(1000);
             var view = UIApplication.SharedApplication.KeyWindow.RootViewController.View;
-
             UIGraphics.BeginImageContext(view.Frame.Size);
             view.DrawViewHierarchy(view.Frame, true);
             var image = UIGraphics.GetImageFromCurrentImageContext();
@@ -40,7 +40,6 @@ namespace Plugin.Screenshot
             chartImage.SaveToPhotosAlbum((image, error) =>
             {
                 //you can retrieve the saved UI Image as well if needed using
-                //var i = image as UIImage;
                 if (error != null)
                 {
                     Console.WriteLine(error.ToString());

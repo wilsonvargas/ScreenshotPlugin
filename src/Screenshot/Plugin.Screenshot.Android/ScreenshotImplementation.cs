@@ -18,6 +18,7 @@ namespace Plugin.Screenshot
 
        public async System.Threading.Tasks.Task<byte[]> CaptureAsync()
         {
+            await Task.Delay(1000);
             if (Context == null)
             {
                 throw new Exception("You have to set Screenshot.Activity in your Android project");

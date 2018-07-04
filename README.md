@@ -28,14 +28,14 @@ var stream = new MemoryStream(await CrossScreenshot.Current.CaptureAsync());
 ImageData.Source = ImageSource.FromStream(() => stream);
 ```
 
-### Save Screenshot into Gallery Images
+### Save Screenshot into Gallery Images and return path
 
 ```c#
 using Plugin.Screenshot;
 
 ...
 
-await CrossScreenshot.Current.CaptureAndSaveAsync();
+string path = await CrossScreenshot.Current.CaptureAndSaveAsync();
 ```
 
 ### iOS setup

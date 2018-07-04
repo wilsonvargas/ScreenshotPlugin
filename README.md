@@ -42,7 +42,7 @@ string path = await CrossScreenshot.Current.CaptureAndSaveAsync();
 Add in your Info.plist
 ```xml
 <key>NSPhotoLibraryUsageDescription</key>
-  <string>This application needs your permission to take photos.</string>
+  <string>This application needs your permission to save photos.</string>
 ```
 
 

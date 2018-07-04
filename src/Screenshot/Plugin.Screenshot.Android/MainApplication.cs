@@ -1,5 +1,3 @@
-/*
-//Commented out because this is added to the base, but to ensure on restore it isn't re-added in.
 using System;
 
 using Android.App;
@@ -62,4 +60,4 @@ namespace Plugin.Screenshot
         {
         }
     }
-}*/
+}

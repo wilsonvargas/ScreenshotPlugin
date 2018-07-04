@@ -26,8 +26,8 @@ namespace SampleScreenShot
         {
             try
             {
-                await CrossScreenshot.Current.CaptureAndSaveAsync();
-                label.Text = DateTime.Now.ToString();
+                string path = await CrossScreenshot.Current.CaptureAndSaveAsync();
+                label.Text = "Location: " + path;
             }
             catch (Exception ex)
             {

@@ -29,22 +29,30 @@ namespace Plugin.Screenshot
             }
         }
 
-        public async Task CaptureAndSaveAsync()
+        public async Task<string> CaptureAndSaveAsync()
         {
             var bytes = await CaptureAsync();
             var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
             string date = DateTime.Now.ToString().Replace("/", "-").Replace(":", "-");
-            string localPath = System.IO.Path.Combine(documentsDirectory, "Screnshot-" + date + ".png");
-
-            var chartImage = new UIImage(NSData.FromArray(bytes));
-            chartImage.SaveToPhotosAlbum((image, error) =>
+            try
             {
-                //you can retrieve the saved UI Image as well if needed using
-                if (error != null)
+                string localPath = System.IO.Path.Combine(documentsDirectory, "Screnshot-" + date + ".png");
+
+                var chartImage = new UIImage(NSData.FromArray(bytes));
+                chartImage.SaveToPhotosAlbum((image, error) =>
                 {
-                    Console.WriteLine(error.ToString());
-                }
-            });
+                    //you can retrieve the saved UI Image as well if needed using
+                    if (error != null)
+                    {
+                        Console.WriteLine(error.ToString());
+                    }
+                });
+                return localPath;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

@@ -39,16 +39,25 @@ namespace Plugin.Screenshot
             return bitmapData;
         }
 
-        public async Task CaptureAndSaveAsync()
+        public async Task<string> CaptureAndSaveAsync()
         {
             var bytes = await CaptureAsync();
             Java.IO.File picturesFolder = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryPictures);
             string date = DateTime.Now.ToString().Replace("/", "-").Replace(":", "-");
-            string filePath = System.IO.Path.Combine(picturesFolder.AbsolutePath, "Screnshot-" + date + ".png");
-            using (System.IO.FileStream SourceStream = System.IO.File.Open(filePath, System.IO.FileMode.OpenOrCreate))
+            try
             {
-                SourceStream.Seek(0, System.IO.SeekOrigin.End);
-                await SourceStream.WriteAsync(bytes, 0, bytes.Length);
+                string filePath = System.IO.Path.Combine(picturesFolder.AbsolutePath, "Screnshot-" + date + ".png");
+                using (System.IO.FileStream SourceStream = System.IO.File.Open(filePath, System.IO.FileMode.OpenOrCreate))
+                {
+                    SourceStream.Seek(0, System.IO.SeekOrigin.End);
+                    await SourceStream.WriteAsync(bytes, 0, bytes.Length);
+                }
+                return filePath;
+            }
+            catch (Exception ex)
+            {
+
+                return ex.Message;
             }
         }
     }

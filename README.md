@@ -28,21 +28,21 @@ var stream = new MemoryStream(await CrossScreenshot.Current.CaptureAsync());
 ImageData.Source = ImageSource.FromStream(() => stream);
 ```
 
-### Save Screenshot into Gallery Images
+### Save Screenshot into Gallery Images and return path
 
 ```c#
 using Plugin.Screenshot;
 
 ...
 
-await CrossScreenshot.Current.CaptureAndSaveAsync();
+string path = await CrossScreenshot.Current.CaptureAndSaveAsync();
 ```
 
 ### iOS setup
 Add in your Info.plist
 ```xml
 <key>NSPhotoLibraryUsageDescription</key>
-  <string>This application needs your permission to take photos.</string>
+  <string>This application needs your permission to save photos.</string>
 ```
 
 

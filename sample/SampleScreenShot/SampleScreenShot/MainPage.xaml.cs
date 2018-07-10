@@ -1,10 +1,6 @@
 ﻿using Plugin.Screenshot;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace SampleScreenShot
@@ -33,7 +29,6 @@ namespace SampleScreenShot
             {
                 await App.Current.MainPage.DisplayAlert("Error", ex.Message, "ok");
             }
-            
         }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace SampleScreenShot
 {
@@ -16,9 +11,9 @@ namespace SampleScreenShot
             MainPage = new SampleScreenShot.MainPage();
         }
 
-        protected override void OnStart()
+        protected override void OnResume()
         {
-            // Handle when your app starts
+            // Handle when your app resumes
         }
 
         protected override void OnSleep()
@@ -26,9 +21,9 @@ namespace SampleScreenShot
             // Handle when your app sleeps
         }
 
-        protected override void OnResume()
+        protected override void OnStart()
         {
-            // Handle when your app resumes
+            // Handle when your app starts
         }
     }
 }

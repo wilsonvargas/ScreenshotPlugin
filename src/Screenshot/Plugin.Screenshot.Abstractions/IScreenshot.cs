@@ -1,14 +1,14 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Plugin.Screenshot.Abstractions
 {
-  /// <summary>
-  /// Interface for Screenshot
-  /// </summary>
-  public interface IScreenshot
-  {
-        Task<byte[]> CaptureAsync();
+    /// <summary>
+    /// Interface for Screenshot
+    /// </summary>
+    public interface IScreenshot
+    {
         Task<string> CaptureAndSaveAsync();
+
+        Task<byte[]> CaptureAsync();
     }
 }

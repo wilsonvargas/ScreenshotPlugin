@@ -28,6 +28,5 @@
   <Library Name="Plugin.Screenshot.UWP">
 
   	<!-- add directives for your library here -->
-
   </Library>
 </Directives>

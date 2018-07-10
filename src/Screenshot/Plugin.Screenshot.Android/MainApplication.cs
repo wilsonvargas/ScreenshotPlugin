@@ -1,32 +1,18 @@
-using System;
-
 using Android.App;
 using Android.OS;
 using Android.Runtime;
 using Plugin.CurrentActivity;
+using System;
 
 namespace Plugin.Screenshot
 {
-	//You can specify additional application information in this attribute
+    //You can specify additional application information in this attribute
     [Application]
     public class MainApplication : Application, Application.IActivityLifecycleCallbacks
     {
         public MainApplication(IntPtr handle, JniHandleOwnership transer)
-          :base(handle, transer)
+          : base(handle, transer)
         {
-        }
-
-        public override void OnCreate()
-        {
-            base.OnCreate();
-            RegisterActivityLifecycleCallbacks(this);
-            //A great place to initialize Xamarin.Insights and Dependency Services!
-        }
-
-        public override void OnTerminate()
-        {
-            base.OnTerminate();
-            UnregisterActivityLifecycleCallbacks(this);
         }
 
         public void OnActivityCreated(Activity activity, Bundle savedInstanceState)
@@ -58,6 +44,19 @@ namespace Plugin.Screenshot
 
         public void OnActivityStopped(Activity activity)
         {
+        }
+
+        public override void OnCreate()
+        {
+            base.OnCreate();
+            RegisterActivityLifecycleCallbacks(this);
+            //A great place to initialize Xamarin.Insights and Dependency Services!
+        }
+
+        public override void OnTerminate()
+        {
+            base.OnTerminate();
+            UnregisterActivityLifecycleCallbacks(this);
         }
     }
 }

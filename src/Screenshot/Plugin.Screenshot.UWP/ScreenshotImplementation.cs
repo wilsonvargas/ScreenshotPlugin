@@ -17,6 +17,28 @@ namespace Plugin.Screenshot
     /// </summary>
     public class ScreenshotImplementation : IScreenshot
     {
+        public async Task<string> CaptureAndSaveAsync()
+        {
+            var bytes = await CaptureAsync();
+            StorageFolder picturesLibrary = KnownFolders.PicturesLibrary;
+            StorageFolder savedPicturesFolder = await picturesLibrary.CreateFolderAsync("Screenshots", CreationCollisionOption.OpenIfExists);
+            string date = DateTime.Now.ToString().Replace("/", "-").Replace(":", "-");
+            try
+            {
+                StorageFile imageFile = await savedPicturesFolder.CreateFileAsync("Screnshot-" + date + ".png", CreationCollisionOption.ReplaceExisting);
+                using (System.IO.Stream SourceStream = await imageFile.OpenStreamForWriteAsync())
+                {
+                    SourceStream.Seek(0, System.IO.SeekOrigin.End);
+                    await SourceStream.WriteAsync(bytes, 0, bytes.Length);
+                }
+                return imageFile.Path;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public async Task<byte[]> CaptureAsync()
         {
             await Task.Delay(1000);
@@ -49,29 +71,5 @@ namespace Plugin.Screenshot
 
             return bytes;
         }
-
-        public async Task<string> CaptureAndSaveAsync()
-        {
-            var bytes = await CaptureAsync();
-            StorageFolder picturesLibrary = KnownFolders.PicturesLibrary;
-            StorageFolder savedPicturesFolder = await picturesLibrary.CreateFolderAsync("Screenshots", CreationCollisionOption.OpenIfExists);
-            string date = DateTime.Now.ToString().Replace("/", "-").Replace(":", "-");
-            try
-            {
-                StorageFile imageFile = await savedPicturesFolder.CreateFileAsync("Screnshot-" + date + ".png", CreationCollisionOption.ReplaceExisting);
-                using (System.IO.Stream SourceStream = await imageFile.OpenStreamForWriteAsync())
-                {
-                    SourceStream.Seek(0, System.IO.SeekOrigin.End);
-                    await SourceStream.WriteAsync(bytes, 0, bytes.Length);
-                }
-                return imageFile.Path;
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
-            
-        }
-
     }
 }

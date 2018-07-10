@@ -1,7 +1,6 @@
 using Foundation;
 using Plugin.Screenshot.Abstractions;
 using System;
-using System.IO;
 using System.Threading.Tasks;
 using UIKit;
 
@@ -11,24 +10,7 @@ namespace Plugin.Screenshot
     /// Implementation for Screenshot
     /// </summary>
     public class ScreenshotImplementation : IScreenshot
-    {   
-        public async Task<byte[]> CaptureAsync()
-        {
-            await Task.Delay(1000);
-            var view = UIApplication.SharedApplication.KeyWindow.RootViewController.View;
-            UIGraphics.BeginImageContext(view.Frame.Size);
-            view.DrawViewHierarchy(view.Frame, true);
-            var image = UIGraphics.GetImageFromCurrentImageContext();
-            UIGraphics.EndImageContext();
-
-            using (var imageData = image.AsPNG())
-            {
-                var bytes = new byte[imageData.Length];
-                System.Runtime.InteropServices.Marshal.Copy(imageData.Bytes, bytes, 0, Convert.ToInt32(imageData.Length));
-                return bytes;
-            }
-        }
-
+    {
         public async Task<string> CaptureAndSaveAsync()
         {
             var bytes = await CaptureAsync();
@@ -52,6 +34,23 @@ namespace Plugin.Screenshot
             catch (Exception ex)
             {
                 return ex.Message;
+            }
+        }
+
+        public async Task<byte[]> CaptureAsync()
+        {
+            await Task.Delay(1000);
+            var view = UIApplication.SharedApplication.KeyWindow.RootViewController.View;
+            UIGraphics.BeginImageContext(view.Frame.Size);
+            view.DrawViewHierarchy(view.Frame, true);
+            var image = UIGraphics.GetImageFromCurrentImageContext();
+            UIGraphics.EndImageContext();
+
+            using (var imageData = image.AsPNG())
+            {
+                var bytes = new byte[imageData.Length];
+                System.Runtime.InteropServices.Marshal.Copy(imageData.Bytes, bytes, 0, Convert.ToInt32(imageData.Length));
+                return bytes;
             }
         }
     }

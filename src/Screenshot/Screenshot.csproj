@@ -1,0 +1,124 @@
+﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.29">
+
+  <PropertyGroup>
+    <!--Work around so the conditions work below-->
+    <TargetFrameworks></TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard2.0;Xamarin.iOS10;MonoAndroid81;uap10.0.17763</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard2.0;Xamarin.iOS10;MonoAndroid81</TargetFrameworks>
+    <!--Feel free to add as many targets as you need below
+    netstandard1.0;netstandard2.0;MonoAndroid81;Xamarin.iOS10;uap10.0.16299;Xamarin.TVOS10;Xamarin.WatchOS10;Xamarin.Mac20;Tizen40
+    For UWP update the version number with a version number you have installed.
+    -->
+    <AssemblyName>Plugin.Screenshot</AssemblyName>
+    <RootNamespace>Plugin.Screenshot</RootNamespace>
+    <PackageId>Xam.Plugin.Screenshot</PackageId>
+    
+    <Product>Screenshot Plugin for Xamarin and Windows</Product>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+    <Version>2.0.0.0</Version>
+    <PackageVersion>2.0.0.0</PackageVersion>
+    <PackOnBuild>true</PackOnBuild>
+    <NeutralLanguage>en</NeutralLanguage>
+    <LangVersion>default</LangVersion>
+    <DefineConstants>$(DefineConstants);</DefineConstants>
+    
+    <UseFullSemVerForNuGet>false</UseFullSemVerForNuGet>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+
+    <LangVersion>latest</LangVersion>
+    <DebugType>portable</DebugType>
+    
+    <!--TODO: Fill these in-->
+    <PackageLicenseUrl>https://github.com/wilsonvargas/ScreenshotPlugin/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/wilsonvargas/ScreenshotPlugin</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/wilsonvargas/ScreenshotPlugin</RepositoryUrl>
+    <PackageReleaseNotes>Added support for .netstandard</PackageReleaseNotes>
+    <PackageIconUrl>https://raw.githubusercontent.com/wilsonvargas/ScreenshotPlugin/master/icon/icon.png</PackageIconUrl>
+    <PackageTags>xamarin, netstandard, xam.pcl, screenshot, windows, android, xamarin.forms, ios</PackageTags>
+    
+    <Title>Screenshot Plugin for Xamarin and Windows</Title>
+    <Summary>Get screenshots from any device.</Summary>
+    <Description>
+      Take screenshots from any platform with this plugin.
+      
+    </Description>
+    
+    
+    <Owners>Wilson Vargas</Owners>
+    <Authors>Wilson Vargas</Authors>
+    <Copyright>Copyright 2018</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)'=='Release' ">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="**\*.shared.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('uap10.0')) ">
+    <Compile Include="**\*.uwp.cs" />
+    <!--
+    If you need to add sdk references:
+     <SDKReference Include="WindowsMobile, Version=10.0.16299.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+    -->
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
+    <Compile Include="**\*.android.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
+    <Compile Include="**\*.apple.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'MonoAndroid81'">
+    <PackageReference Include="Plugin.CurrentActivity">
+      <Version>2.1.0.4</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <!--Additional item groups-->
+  <!--
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.TVOS')) ">
+    <Compile Include="**\*.tvos.cs" />
+  </ItemGroup>
+
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.WatchOS')) ">
+    <Compile Include="**\*.watchos.cs" />
+  </ItemGroup>
+
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.Mac')) ">
+    <Compile Include="**\*.mac.cs" />
+  </ItemGroup>
+
+  
+   <ItemGroup Condition=" $(TargetFramework.StartsWith('netcoreapp')) ">
+    <Compile Include="**\*.netcore.cs" />
+  </ItemGroup>
+  
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('Tizen')) ">
+    <Compile Include="**\*.tizen.cs" />
+    <PackageReference Include="Tizen.NET" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('net45')) ">
+    <Compile Include="**\*.dotnet.cs" />
+  </ItemGroup>
+  -->
+</Project>

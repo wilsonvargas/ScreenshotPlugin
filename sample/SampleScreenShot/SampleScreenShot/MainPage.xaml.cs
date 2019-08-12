@@ -15,7 +15,7 @@ namespace SampleScreenShot
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var stream1 = new MemoryStream(await CrossScreenshot.Current.CaptureAsync());
-            IncidentImageData.Source = ImageSource.FromStream(() => stream1);
+            ImageData.Source = ImageSource.FromStream(() => stream1);
         }
 
         private async void Button_Clicked_1(object sender, EventArgs e)

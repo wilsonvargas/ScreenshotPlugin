@@ -25,7 +25,7 @@ using Plugin.Screenshot;
 ...
 
 var stream = new MemoryStream(await CrossScreenshot.Current.CaptureAsync());
-ImageData.Source = ImageSource.FromStream(() => stream);
+yourImage.Source = ImageSource.FromStream(() => stream);
 ```
 
 ### Save Screenshot into Gallery Images and return path

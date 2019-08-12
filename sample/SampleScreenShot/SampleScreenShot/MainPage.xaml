@@ -6,7 +6,7 @@
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <Frame CornerRadius="50" BackgroundColor="Black">
-            <Image x:Name="IncidentImageData" Aspect="AspectFill" HeightRequest="250" WidthRequest="100" />
+            <Image x:Name="ImageData" Aspect="AspectFill" HeightRequest="250" WidthRequest="100" />
         </Frame>
         <Label x:Name="label" />
         <Button Text="Take Screenshot!" Clicked="Button_Clicked" />

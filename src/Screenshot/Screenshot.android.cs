@@ -55,7 +55,7 @@ namespace Plugin.Screenshot
                 bitmap.Compress(Bitmap.CompressFormat.Png, 0, stream);
                 bitmapData = stream.ToArray();
             }
-
+            view.DrawingCacheEnabled = false;
             return bitmapData;
         }
     }

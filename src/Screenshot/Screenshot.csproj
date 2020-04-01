@@ -34,7 +34,7 @@
     <PackageProjectUrl>https://github.com/wilsonvargas/ScreenshotPlugin</PackageProjectUrl>
     <RepositoryUrl>https://github.com/wilsonvargas/ScreenshotPlugin</RepositoryUrl>
     <PackageReleaseNotes>Added support for .netstandard</PackageReleaseNotes>
-    <PackageIconUrl>https://raw.githubusercontent.com/wilsonvargas/ScreenshotPlugin/master/icon/icon.png</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <PackageTags>xamarin, netstandard, xam.pcl, screenshot, windows, android, xamarin.forms, ios</PackageTags>
     
     <Title>Screenshot Plugin for Xamarin and Windows</Title>
@@ -61,10 +61,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="images\icon.png" Pack="true" PackagePath=""/>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="**\*.shared.cs" />
   </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
   </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('uap10.0')) ">
@@ -78,10 +83,12 @@
   </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
     <Compile Include="**\*.android.cs" />
   </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
     <Compile Include="**\*.apple.cs" />
   </ItemGroup>
 

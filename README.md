@@ -2,10 +2,13 @@
 
 A simple Screenshot plugin for Xamarin and Windows to get and save screenshot in yours apps.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/1w46g7ebn59w6d0f?svg=true)](https://ci.appveyor.com/project/wilsonvargas/screenshotplugin) [![NuGet](https://img.shields.io/nuget/v/Xam.Plugin.Screenshot.svg?label=NuGet)](https://www.nuget.org/packages/Xam.Plugin.Screenshot/) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/wilsondonations/5)
+[![Build status](https://ci.appveyor.com/api/projects/status/1w46g7ebn59w6d0f?svg=true)](https://ci.appveyor.com/project/wilsonvargas/screenshotplugin) [![NuGet](https://buildstats.info/nuget/Xam.Plugin.Screenshot)](https://www.nuget.org/packages/Xam.Plugin.Screenshot/) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/wilsondonations/5)
 
 ## NuGet
 * NuGet: [Xam.Plugin.Screenshot](https://www.nuget.org/packages/Xam.Plugin.Screenshot) 
+
+## Github Packages Registry
+* Github Packages Registry: [Xam.Plugin.Screenshot](https://github.com/wilsonvargas/ScreenshotPlugin/packages/25791)
 
 ## Platform Support
 
@@ -25,7 +28,7 @@ using Plugin.Screenshot;
 ...
 
 var stream = new MemoryStream(await CrossScreenshot.Current.CaptureAsync());
-ImageData.Source = ImageSource.FromStream(() => stream);
+yourImage.Source = ImageSource.FromStream(() => stream);
 ```
 
 ### Save Screenshot into Gallery Images and return path

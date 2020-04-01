@@ -4,6 +4,7 @@ using Plugin.CurrentActivity;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace Plugin.Screenshot
 {
@@ -12,8 +13,7 @@ namespace Plugin.Screenshot
     /// </summary>
     public class ScreenshotImplementation : IScreenshot
     {
-        private Activity Context =>
-        CrossCurrentActivity.Current.Activity ?? throw new NullReferenceException("Current Context/Activity is null, ensure that the MainApplication.cs file is setting the CurrentActivity in your source code so the Screenshot can use it.");
+        private Activity Context => Platform.CurrentActivity;
 
         public async Task<string> CaptureAndSaveAsync()
         {
@@ -55,7 +55,7 @@ namespace Plugin.Screenshot
                 bitmap.Compress(Bitmap.CompressFormat.Png, 0, stream);
                 bitmapData = stream.ToArray();
             }
-
+            view.DrawingCacheEnabled = false;
             return bitmapData;
         }
     }

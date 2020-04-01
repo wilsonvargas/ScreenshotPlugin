@@ -40,6 +40,7 @@ namespace Plugin.Screenshot
             }
         }
 
+
         public async Task<byte[]> CaptureAsync()
         {
             await Task.Delay(1000);

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,6 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.530" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Screenshot\Screenshot.csproj" />
   </ItemGroup>
 </Project>

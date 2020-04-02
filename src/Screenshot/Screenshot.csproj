@@ -16,8 +16,8 @@
     <Product>Screenshot Plugin for Xamarin and Windows</Product>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
-    <Version>2.0.0.0</Version>
-    <PackageVersion>2.0.0.0</PackageVersion>
+    <Version>2.0.0.5</Version>
+    <PackageVersion>2.0.0.5</PackageVersion>
     <PackOnBuild>true</PackOnBuild>
     <NeutralLanguage>en</NeutralLanguage>
     <LangVersion>default</LangVersion>
@@ -61,18 +61,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="images\icon.png" Pack="true" PackagePath=""/>
+    <None Include="images\icon.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
     <Compile Include="**\*.shared.cs" />
   </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
   </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('uap10.0')) ">
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.10" />
     <Compile Include="**\*.uwp.cs" />
     <!--
     If you need to add sdk references:
@@ -83,19 +84,14 @@
   </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
     <Compile Include="**\*.android.cs" />
   </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
     <Compile Include="**\*.apple.cs" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'MonoAndroid81'">
-    <PackageReference Include="Plugin.CurrentActivity">
-      <Version>2.1.0.4</Version>
-    </PackageReference>
   </ItemGroup>
 
   <!--Additional item groups-->

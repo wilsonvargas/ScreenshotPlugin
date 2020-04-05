@@ -32,7 +32,8 @@
     <!--TODO: Fill these in-->
     <PackageProjectUrl>https://github.com/wilsonvargas/ScreenshotPlugin</PackageProjectUrl>
     <RepositoryUrl>https://github.com/wilsonvargas/ScreenshotPlugin</RepositoryUrl>
-    <PackageReleaseNotes>Added support for .netstandard</PackageReleaseNotes>
+    <PackageReleaseNotes>Update Xamarin Forms.
+Added Xamarin Essentials to permissions support.</PackageReleaseNotes>
     <PackageIcon>icon.png</PackageIcon>
     <PackageTags>xamarin, netstandard, xam.pcl, screenshot, windows, android, xamarin.forms, ios</PackageTags>
     

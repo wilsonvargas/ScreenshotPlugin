@@ -13,21 +13,15 @@ namespace Plugin.Screenshot
         public async Task<string> CaptureAndSaveAsync()
         {
             var bytes = await CaptureAsync();
-            var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             string date = DateTime.Now.ToString().Replace("/", "-").Replace(":", "-");
+            string localPath = System.IO.Path.Combine(documentsDirectory, "Screnshot-" + date + ".png");
             try
-            {
-                string localPath = System.IO.Path.Combine(documentsDirectory, "Screnshot-" + date + ".png");
-
-                var chartImage = new UIImage(NSData.FromArray(bytes));
-                chartImage.SaveToPhotosAlbum((image, error) =>
-                {
-                    //you can retrieve the saved UI Image as well if needed using
-                    if (error != null)
-                    {
-                        Console.WriteLine(error.ToString());
-                    }
-                });
+            {    
+                var imageData = new UIImage(NSData.FromArray(bytes));
+                NSData pngImg = imageData.AsPNG();
+                NSError err = null;
+                pngImg.Save(localPath, false, out err);                
                 return localPath;
             }
             catch (Exception ex)

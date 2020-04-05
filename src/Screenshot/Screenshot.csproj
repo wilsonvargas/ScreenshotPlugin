@@ -30,7 +30,6 @@
     <DebugType>portable</DebugType>
     
     <!--TODO: Fill these in-->
-    <PackageLicenseUrl>https://github.com/wilsonvargas/ScreenshotPlugin/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/wilsonvargas/ScreenshotPlugin</PackageProjectUrl>
     <RepositoryUrl>https://github.com/wilsonvargas/ScreenshotPlugin</RepositoryUrl>
     <PackageReleaseNotes>Added support for .netstandard</PackageReleaseNotes>
@@ -49,6 +48,7 @@
     <Authors>Wilson Vargas</Authors>
     <Copyright>Copyright 2018</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">

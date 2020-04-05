@@ -16,8 +16,8 @@
     <Product>Screenshot Plugin for Xamarin and Windows</Product>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
-    <Version>2.0.0.5</Version>
-    <PackageVersion>2.0.0.5</PackageVersion>
+    <Version>2.0.1.5</Version>
+    <PackageVersion>2.0.1.5</PackageVersion>
     <PackOnBuild>true</PackOnBuild>
     <NeutralLanguage>en</NeutralLanguage>
     <LangVersion>default</LangVersion>

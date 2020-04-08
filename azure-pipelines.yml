@@ -10,9 +10,12 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
+  CurrentSemanticVersionBase: '2.0.'
   solution: '**/*.sln'
+  NugetPackageVersion: '$(CurrentSemanticVersion)'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  projectPath: 'src/Screenshot/Screenshot.csproj'
 
 steps:
 - task: NuGetToolInstaller@1
@@ -21,49 +24,22 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: VSBuild@1
+- task: MSBuild@1
+  displayName: Build Solution
   inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    solution: $(projectPath)
+    configuration: 'Release'
+    msbuildArguments: '/restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false'
 
-- task: VSTest@2
+- task: MSBuild@1
+  displayName: Pack Nugets
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    version: '2.x'
+    solution: '$(projectPath)'
+    configuration: 'Release'
+    msbuildArguments: '/t:Pack /p:PackageVersion=$(NugetPackageVersion) /p:PackageOutputPath="$(Build.ArtifactStagingDirectory)/nuget"'
 
 - task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: 'src/Screenshot/Screenshot.csproj'
-
-- task: XamarinAndroid@1
-  inputs:
-    projectFile: 'sample/Sample.Android/Sample.Android.csproj'
-    outputDirectory: '$(build.binariesdirectory)/$(BuildConfiguration)'
-    configuration: 'Release'
-    clean: true
-    msbuildVersionOption: 'latest'
-    msbuildArchitectureOption: 'x64'
-    jdkOption: 'JDKVersion'
-
-- task: XamariniOS@2
-  inputs:
-    solutionFile: 'sample/Sample.iOS/Sample.iOS.csproj'
-    configuration: 'Release'
-    clean: true
-    packageApp: true
-    runNugetRestore: false
-
-
-
-- task: DotNetCoreCLI@2
+  displayName: Build Sample
   inputs:
     command: 'build'
     projects: 'sample/Sample/Sample.csproj'

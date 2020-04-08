@@ -32,3 +32,38 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '2.x'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: 'src/Screenshot/Screenshot.csproj'
+
+- task: XamarinAndroid@1
+  inputs:
+    projectFile: 'sample/Sample.Android/Sample.Android.csproj'
+    outputDirectory: '$(build.binariesdirectory)/$(BuildConfiguration)'
+    configuration: 'Release'
+    clean: true
+    msbuildVersionOption: 'latest'
+    msbuildArchitectureOption: 'x64'
+    jdkOption: 'JDKVersion'
+
+- task: XamariniOS@2
+  inputs:
+    solutionFile: 'sample/Sample.iOS/Sample.iOS.csproj'
+    configuration: 'Release'
+    clean: true
+    packageApp: true
+    runNugetRestore: false
+
+
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: 'sample/Sample/Sample.csproj'

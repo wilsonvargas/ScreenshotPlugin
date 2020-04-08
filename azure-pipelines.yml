@@ -12,7 +12,7 @@ pool:
 variables:
   CurrentSemanticVersionBase: '2.0.'
   solution: '**/*.sln'
-  NugetPackageVersion: '$(CurrentSemanticVersion)'
+  NugetPackageVersion: '$(CurrentSemanticVersionBase)'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   projectPath: 'src/Screenshot/Screenshot.csproj'

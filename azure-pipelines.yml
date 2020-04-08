@@ -10,7 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  CurrentSemanticVersionBase: '2.0.'
+  CurrentSemanticVersionBase: '2.0.1'
   solution: '**/*.sln'
   NugetPackageVersion: '$(CurrentSemanticVersionBase)'
   buildPlatform: 'Any CPU'

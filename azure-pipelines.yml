@@ -31,14 +31,12 @@ steps:
     configuration: 'Release'
     msbuildArguments: '/restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false'
 
-- task: NuGetCommand@2
-  displayName: Pack Nugets
+- task: MSBuild@1
+  displayName: Pack NuGets
   inputs:
-    command: 'pack'
-    packagesToPack: '$(projectPath)'
-    configuration: '$(buildConfiguration)'
-    versioningScheme: 'byEnvVar'
-    versionEnvVar: '$(NugetPackageVersion)'
+    solution: $(projectPath)
+    configuration: 'Release'
+    msbuildArguments: '/t:Pack /p:PackageVersion=$(NugetPackageVersion) /p:PackageOutputPath="$(Build.ArtifactStagingDirectory)/nuget"'
 
 - task: DotNetCoreCLI@2
   displayName: Build Sample

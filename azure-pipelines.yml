@@ -47,12 +47,6 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish the package'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/nuget'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-
-- task: DownloadPipelineArtifact@2
-  inputs:
-    buildType: 'current'
-    itemPattern: '**/*.zip'
-    targetPath: '$(Pipeline.Workspace)'

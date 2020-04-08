@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Screenshot", "Screenshot\Screenshot.csproj", "{1EE8FFA0-664F-4F9A-9C74-EF19C69FD2DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Android", "Sample\Sample.Android\Sample.Android.csproj", "{97522704-ACE7-4ADA-94A5-73494053364A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Android", "..\sample\Sample.Android\Sample.Android.csproj", "{97522704-ACE7-4ADA-94A5-73494053364A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.iOS", "Sample\Sample.iOS\Sample.iOS.csproj", "{961EABBE-AE15-41CE-AF61-AB010ED7F1E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.iOS", "..\sample\Sample.iOS\Sample.iOS.csproj", "{961EABBE-AE15-41CE-AF61-AB010ED7F1E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.UWP", "Sample\Sample.UWP\Sample.UWP.csproj", "{62A5F361-7384-4485-8674-131DB38333D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.UWP", "..\sample\Sample.UWP\Sample.UWP.csproj", "{62A5F361-7384-4485-8674-131DB38333D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample\Sample.csproj", "{223F18F2-6AC5-4027-BF09-345AA69092A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "..\sample\Sample\Sample.csproj", "{223F18F2-6AC5-4027-BF09-345AA69092A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

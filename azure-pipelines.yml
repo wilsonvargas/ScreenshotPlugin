@@ -10,10 +10,6 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  majorVersion: 2
-  minorVersion: 0
-  patchVersion: $[counter(variables['build.sourcebranchname'], 0)]
-  NugetPackageVersion: $(majorVersion).$(minorVersion).$(patchVersion)
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
@@ -30,15 +26,8 @@ steps:
   displayName: Build Solution
   inputs:
     solution: $(projectPath)
-    configuration: 'Release'
+    configuration: $(buildConfiguration)
     msbuildArguments: '/restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false'
-
-- task: MSBuild@1
-  displayName: Pack NuGets
-  inputs:
-    solution: $(projectPath)
-    configuration: 'Release'
-    msbuildArguments: '/t:Pack /p:PackageVersion=$(NugetPackageVersion) /p:PackageOutputPath=$(Build.ArtifactStagingDirectory)'
 
 - task: DotNetCoreCLI@2
   displayName: Build Sample

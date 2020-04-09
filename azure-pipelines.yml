@@ -48,5 +48,13 @@ steps:
   displayName: 'Publish the package'
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+    artifactName: 'drop'
     publishLocation: 'Container'
+
+- task: DownloadPipelineArtifact@2
+  displayName: 'Download the package'
+  inputs:
+    buildType: 'current'
+    artifactName: 'drop'
+    itemPattern: '**/*.nupkg'
+    targetPath: '$(Pipeline.Workspace)'

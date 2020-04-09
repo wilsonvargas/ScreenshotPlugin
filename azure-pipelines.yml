@@ -36,7 +36,7 @@ steps:
   inputs:
     solution: $(projectPath)
     configuration: 'Release'
-    msbuildArguments: '/t:Pack /p:PackageVersion=$(NugetPackageVersion) /p:PackageOutputPath="$(Build.ArtifactStagingDirectory)/nuget"'
+    msbuildArguments: '/t:Pack /p:PackageVersion=$(NugetPackageVersion) /p:PackageOutputPath=$(Build.ArtifactStagingDirectory)'
 
 - task: DotNetCoreCLI@2
   displayName: Build Sample
@@ -47,6 +47,6 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish the package'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/nuget'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'

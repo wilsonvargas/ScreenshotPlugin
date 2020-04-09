@@ -10,9 +10,11 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  CurrentSemanticVersionBase: '2.0.1'
+  majorVersion: 1
+  minorVersion: 1
+  patchVersion: $[counter(variables['minorVersion'], 0)]
+  NugetPackageVersion: $(majorVersion).$(minorVersion).$(patchVersion)
   solution: '**/*.sln'
-  NugetPackageVersion: '$(CurrentSemanticVersionBase)'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   projectPath: 'src/Screenshot/Screenshot.csproj'
@@ -50,11 +52,3 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: 'drop'
     publishLocation: 'Container'
-
-- task: DownloadPipelineArtifact@2
-  displayName: 'Download the package'
-  inputs:
-    buildType: 'current'
-    artifactName: 'drop'
-    itemPattern: '**/*.nupkg'
-    targetPath: '$(Pipeline.Workspace)'

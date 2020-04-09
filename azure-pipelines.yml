@@ -45,10 +45,3 @@ steps:
   inputs:
     command: 'build'
     projects: 'sample/Sample/Sample.csproj'
-
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish the package'
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: 'drop'
-    publishLocation: 'Container'

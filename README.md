@@ -46,6 +46,8 @@ Add in your Info.plist
 ```xml
 <key>NSPhotoLibraryUsageDescription</key>
   <string>This application needs your permission to save photos.</string>
+<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This application needs your permission to save photos.</string>	
 ```
 
 

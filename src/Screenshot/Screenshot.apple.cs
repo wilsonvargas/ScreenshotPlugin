@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using UIKit;
 
@@ -12,22 +13,23 @@ namespace Plugin.Screenshot
     {
         public async Task<string> CaptureAndSaveAsync()
         {
-            var bytes = await CaptureAsync();
-            var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            byte[] bytes = await CaptureAsync();
+            string documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             string date = DateTime.Now.ToString().Replace("/", "-").Replace(":", "-");
-            string localPath = System.IO.Path.Combine(documentsDirectory, "Screnshot-" + date + ".png");
-            try
-            {    
-                var imageData = new UIImage(NSData.FromArray(bytes));
-                NSData pngImg = imageData.AsPNG();
-                NSError err = null;
-                pngImg.Save(localPath, false, out err);                
-                return localPath;
-            }
-            catch (Exception ex)
+            string imageFilename = System.IO.Path.Combine(documentsDirectory + "/AppPhoto", "Screnshot-" + date + ".jpg");
+            string result = string.Empty;
+            UIImage imageData = new UIImage(NSData.FromArray(bytes));
+            imageData.SaveToPhotosAlbum((uiImage, nsError) =>
             {
-                return ex.Message;
-            }
+                if (nsError != null) {
+                    result = nsError.LocalizedDescription;
+                }
+                else {
+                    result = imageFilename;
+                }
+            });
+
+            return result;
         }
 
         public async Task<byte[]> CaptureAsync()

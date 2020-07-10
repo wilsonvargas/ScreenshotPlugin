@@ -54,7 +54,7 @@ Add in your Info.plist
 
 ### Created By: [@Wilson Vargas](http://twitter.com/Wilson_VargasM)
 * Twitter: [@Wilson_VargasM](http://twitter.com/Wilson_VargasM)
-* Blog: [wilsonvargas.net](https://wilsonvargas.net), [Héroes del código](http://www.heroesdelcodigo.com/author/wilson/)
+* Blog: [wilsonvargas.net](https://wilsonvargas.net)
 
 ### License
 The MIT License (MIT), see [LICENSE](LICENSE) file.
